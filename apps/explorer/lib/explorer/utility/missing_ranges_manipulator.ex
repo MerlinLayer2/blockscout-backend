@@ -53,7 +53,7 @@ defmodule Explorer.Utility.MissingRangesManipulator do
     {:noreply, state}
   end
 
-  @default_timeout 50000
+  @default_timeout 5000
   @timeout_by_range 2000
   defp timeout(batch) do
     @default_timeout + @timeout_by_range * Enum.count(batch)

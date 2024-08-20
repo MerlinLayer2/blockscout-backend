@@ -35,7 +35,7 @@ defmodule Indexer.Fetcher.ReplacedTransaction do
           ],
           boolean()
         ) :: :ok
-  def async_fetch(transactions_fields, realtime?, timeout \\ 50000) when is_list(transactions_fields) do
+  def async_fetch(transactions_fields, realtime?, timeout \\ 5000) when is_list(transactions_fields) do
     if ReplacedTransactionSupervisor.disabled?() do
       :ok
     else
