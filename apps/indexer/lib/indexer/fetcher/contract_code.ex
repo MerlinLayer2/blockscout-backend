@@ -31,7 +31,7 @@ defmodule Indexer.Fetcher.ContractCode do
 
   @spec async_fetch([%{required(:block_number) => Block.block_number(), required(:hash) => Hash.Full.t()}], boolean()) ::
           :ok
-  def async_fetch(transactions_fields, realtime?, timeout \\ 5000) when is_list(transactions_fields) do
+  def async_fetch(transactions_fields, realtime?, timeout \\ 50000) when is_list(transactions_fields) do
     entries = Enum.map(transactions_fields, &entry/1)
 
     BufferedTask.buffer(__MODULE__, entries, realtime?, timeout)
