@@ -157,7 +157,7 @@ defmodule Indexer.BufferedTask do
   Buffers list of entries for future async execution.
   """
   @spec buffer(GenServer.name(), entries(), boolean(), timeout()) :: :ok
-  def buffer(server, entries, front?, timeout \\ 5000) when is_list(entries) do
+  def buffer(server, entries, front?, timeout \\ 50000) when is_list(entries) do
     GenServer.call(server, {:buffer, entries, front?}, timeout)
   end
 
